@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* overflow-x: hidden; */
+}
+
+html {
+  font-size: 10px;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+:root {
+  --color-dark-blue: #202040;
+  --color-medium-blue: #404081;
+  --color-light-blue: #40bec7;
+  --color-light-red: #ff6363;
+  --color-light-grey: #eaeaea;
+  --fs-large: 2.5rem;
+  --fs-medium: 1.8rem;
+  --fs-small: 1.6rem;
+}
+
+body {
+  background-color: var(--color-dark-blue);
+  color: var(--color-light-grey);
+  font-size: var(--fs-small);
+}
+
+.container {
+  width: 100%;
+  padding: 0 5px;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.btn {
+  padding: 1rem 3rem;
+  color: inherit;
+  background-color: var(--color-dark-blue);
+  border-radius: 3px;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: var(--fs-medium);
+  border: 1px solid var(--color-light-grey);
+
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: var(--color-light-blue) 0px 3px 0px;
+  margin-right: 5px;
+}
+
+.btn:hover {
+  color: black;
+  background-color: var(--color-light-blue);
+  box-shadow: var(--color-light-blue) 0px 0px 0px;
+  transform: translateY(3px);
+}
