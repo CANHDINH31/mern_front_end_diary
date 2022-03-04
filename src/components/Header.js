@@ -19,14 +19,10 @@ function Header() {
           {user ? (
             <>
               <li>
-                <span href="#" className="user-name">
-                  Hello, {user.userName}
-                </span>
+                <span className="user-name">Hello, {user.userName}</span>
               </li>
               <li>
-                <a href="#" onClick={() => signOut()}>
-                  Sign out
-                </a>
+                <a onClick={() => signOut()}>Sign out</a>
               </li>
             </>
           ) : (

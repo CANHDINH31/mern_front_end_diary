@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import "../css/Form.css";
 import axios from "axios";
 import AppContext from "./AppContext";
@@ -7,7 +7,7 @@ function Form() {
   const { user } = state;
   const [postInput, setPostInput] = useState({ content: "" });
   const [errorMessage, setErrorMessage] = useState(null);
-  const onSubmitHandle = useCallback(async (e) => {
+  const onSubmitHandle = async (e) => {
     try {
       e.preventDefault();
       const token = localStorage.getItem("token");
@@ -30,7 +30,8 @@ function Form() {
     } catch (error) {
       setErrorMessage(error.response.data.message);
     }
-  });
+  };
+
   return (
     <section className="form-section">
       <form className="form" onSubmit={onSubmitHandle}>

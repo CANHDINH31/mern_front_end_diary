@@ -1,13 +1,14 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import PostItem from "./PostItem";
 import "../css/Post.css";
 import axios from "axios";
 import AppContext from "./AppContext";
 function PostList() {
   const { state, dispatch } = useContext(AppContext);
-  const { posts, user } = state;
+  const { posts } = state;
   const [page, setPage] = useState(1);
-  const getAllPosts = async () => {
+  const [numberPage, setNumberPage] = useState(0);
+  const getAllPosts = useCallback(async () => {
     try {
       const option = {
         method: "get",
@@ -15,16 +16,18 @@ function PostList() {
       };
       const respone = await axios(option);
       const posts = respone.data.data.posts;
+      setNumberPage(respone.data.data.numberPage);
 
       dispatch({ type: "GET_ALL_POSTS", payload: posts });
     } catch (error) {
       console.log(error);
     }
-  };
+  });
   useEffect(() => {
     getAllPosts();
-  }, [page]);
+  }, [page, posts.length]);
 
+  //
   // const newPosts = posts.map((post) => {
   //   if (user) {
   //     return post.author.name === user.userName
@@ -61,7 +64,7 @@ function PostList() {
             PREV
           </button>
         )}
-        {posts.length == 5 && (
+        {page < numberPage && (
           <button
             className="btn"
             onClick={() => {

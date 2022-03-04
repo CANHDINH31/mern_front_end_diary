@@ -24,7 +24,7 @@ function App() {
         },
       };
       const respone = await axios(option);
-      if (respone.data.data.user) {
+      if (respone?.data?.data?.user) {
         const { userName } = respone.data.data.user;
         dispatch({ type: "CURRENT_USER", payload: { userName } });
       }
